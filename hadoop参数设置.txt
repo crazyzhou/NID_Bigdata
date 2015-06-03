@@ -1,0 +1,12 @@
+hadoop参数设置：
+第一个：input文件夹存放待分类原始数据
+第二个：output文件夹存放迭代聚类和结果
+第三个：minmax文件夹存放原始数据每一维度的最大最小值用以标准化计算
+第四个：centers文件夹初始中心点
+
+第一次mapreduce：构造第一组中心点（被注释）
+将训练集放入input/，计算得出的初始中心点，结果存入centers/
+第二次mapreduce：计算每一维度的最大最小值
+input/中改为测试集，计算每一维度的最大最小值，结果存入minmax/
+之后的mapreduce为kmeans迭代，每一次结果放入output/clustering/depth_i/文件夹中
+迭代结果收敛后，再做一次map结果存入output/final/中，这样output/clustering/depth_n/中存放最后一次迭代的中心点，而output/final/中存有每一个样本点的聚类结果。

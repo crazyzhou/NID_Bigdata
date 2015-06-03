@@ -1,0 +1,5 @@
+Kmeans.jar里为map-reduce部分的代码，test-accurate为检验正确率的代码
+hhbase-in为插入数据代码
+javaui为ui代码
+
+说明在kmeans.rar里有
